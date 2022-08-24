@@ -1,3 +1,5 @@
-chrome.runtime.sendMessage({}, function (response) {
-    alert(response);
-})
+setInterval(() => {
+    chrome.runtime.sendMessage({ location: window.location.href }, function (response) {
+        document.body.innerHTML = JSON.stringify(response);
+    })
+}, 3000)

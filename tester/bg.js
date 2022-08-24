@@ -1,3 +1,5 @@
+let messages = []
 chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
-    sendResponse(sender.tab.id);
+    messages.push({tab: sender.tab.id, msg:msg});
+    sendResponse(messages);
 })
